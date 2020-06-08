@@ -1,0 +1,8 @@
+FROM amazonlinux
+WORKDIR /home
+COPY ./polina.s .
+RUN yum install -y gcc
+RUN yum install -y nano
+RUN yum install -y gdb
+RUN gcc polina.s -no-pie -o laba2 -g
+ENTRYPOINT /bin/bash
